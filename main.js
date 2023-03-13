@@ -1,4 +1,4 @@
-import './style.css'
+import './style.scss'
 
 try {
   const a = 1 + 2
