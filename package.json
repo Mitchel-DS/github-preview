@@ -11,5 +11,8 @@
   "devDependencies": {
     "sass": "^1.59.2",
     "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "octokit": "^2.0.14"
   }
 }

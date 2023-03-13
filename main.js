@@ -1,14 +1,22 @@
-import './style.scss'
+import './style.scss';
+// import { Octokit } from 'octokit';
+// import token from './config';
 
-try {
-  const a = 1 + 2
-  console.log(a)
-} catch (e) {
-  console.log(e.status)
-}
+// const octokit = new Octokit({
+//   auth: token,
+// });
 
-console.log('Hello World');
+// try {
+//   await octokit.request("GET /repos/{owner}/{repo}/issues", {
+//     owner: "Mitchel-DS",
+//     repo: "business-card",
+//   });
+// } catch (error) {
+//   console.error('kanker');
+// }
+
 
 document.querySelector('#app').innerHTML = `
   <h1>Hello.</h1>
-`
+  <p>My name is Mitchel-DS. Welcome to my page.</p>
+`;
