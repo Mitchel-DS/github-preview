@@ -5,6 +5,7 @@ const endpoint = 'https://api.github.com/users/';
 const user = 'Mitchel-DS';
 const repolist = document.querySelector('#app ul');
 const amountContainer = document.querySelector('#app h3');
+const loading = document.querySelector('#loading');
 
 // fetch data from API
 const fetchData = async () => {
@@ -21,16 +22,40 @@ const fetchData = async () => {
 const displayData = async () => { 
   const repos = await fetchData();
   const repoData = repos;
-  console.log(repoData.length);
 
   var repoAmount = `<h3>Currently: ${repoData.length} projects</h3>`;
   amountContainer.insertAdjacentHTML('beforeend', repoAmount);
 
   repoData.forEach(repo => {
-    var listItem = `<li><a href="${repo.html_url}"><h3>${repo.name}</h3><p>${repo.description}</p></a></li>`;
+    var topicList = repo.topics;
+    var topics = topicList.join(', ');
+    if (topics == '') {
+      topics = '-';
+    }
+
+    var updated = new Date(repo.updated_at);
+    const formattedDate = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(updated);
+
+    var listItem = `<li><a href="${repo.html_url}"><h3>${repo.name}</h3><p>${repo.description}</p> <p>${topics}</p> <p>Last updated: ${formattedDate}</p></a></li>`;
     repolist.insertAdjacentHTML('beforeend', listItem);
   });
 }
 
+const showLoading = () => {
+  loading.style.display = 'flex';
+}
+
+
 fetchData();
 displayData();
+showLoading();
+
+setTimeout(() => {
+  loading.style.display = 'none';
+ }, 2000);
