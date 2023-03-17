@@ -1,7 +1,10 @@
 # github-preview
 Personal portofolio using the GitHub API.
 
+## Process  
+
 ```
+
 import { Octokit } from 'octokit';
 import token from './config';
 
@@ -15,9 +18,12 @@ try {
     repo: "business-card",
   });
 } catch (error) {
-  console.error('kanker');
+  console.error('Error: ', error);
 }
 
 ```
+
+![image](/public/error.png)
+
 
 failed attempt for fetching using octokit. global not defined. 
