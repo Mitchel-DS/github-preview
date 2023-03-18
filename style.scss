@@ -30,6 +30,7 @@ body {
 
 	#loading {
 		display: none;
+		flex-direction: column;
 		position: fixed;
 		width: 100%;
 		height: 100%;
@@ -38,15 +39,44 @@ body {
 		align-items: center;
 		z-index: 9999;
 		
+		img {
+			width: 100px;
+			height: 100px;
+			animation: loadingHover 2s linear infinite;
+		}
 
 		p {
 			font-size: 2em;
 			color: #646cff;
-			animation: spin 2s linear infinite;
+			animation: loadingHover 2s linear infinite;
 		}
 	}
 
-	@keyframes spin {
+	#error {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		
+		img {
+			width: 100px;
+			height: 100px;
+			animation: loadingHover 2s linear infinite;
+		}
+
+		p {
+			font-size: 2em;
+			color: #646cff;
+			animation: loadingHover 2s linear infinite;
+		}
+	}
+
+	@keyframes loadingHover {
 		0% {
 			transform: translateY(0);
 			opacity: 1;
@@ -65,6 +95,7 @@ body {
 		max-width: 1280px;
 		padding: 2rem;
 		text-align: center;
+		display: block;
 		
 		h1 {
 			font-size: 3.2em;
@@ -81,10 +112,8 @@ body {
 		}
 
 		img {
-			width: 100%;
-			max-width: 400px;
+			max-width: 300px;
 			margin: 8px;
-			border-radius: 50%;
 		}
 
 		section {
@@ -145,7 +174,7 @@ body {
 						color: inherit;
 
 						&:focus {
-							animation: spin 2s infinite;
+							animation: loadingHover 2s infinite;
 						}
 						
 					}
